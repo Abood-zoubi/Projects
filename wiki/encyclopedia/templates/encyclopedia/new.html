@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+
+
+    <form method="POST" action="{% url 'new' %}">
+        <h1>New Page</h1>
+        <div class="new_page">
+
+            <input name="title" type="text" placeholder="Page Title" style="display: block; margin-top: 30px; margin-left: 30px; padding-left: 10px;">
+
+            <textarea name="description" placeholder="Write description" style="max-height: 1100px; margin-left: 30px; margin-top: 20px; padding-left: 10px;"></textarea>
+
+            <input type="submit" class="btn btn-primary" value="Submit Page" style="display: block; margin-top: 10px; margin-left: 1360px;">
+        </div>
+        {% csrf_token %}
+    
+    </form>
+
+
+{% endblock %}
