@@ -1,0 +1,186 @@
+/*Links in the upperright corner*/
+.links {
+    text-align: right;
+    margin: auto;
+    display: inline;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14pt;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.why {
+    margin-right: 20px;
+}
+
+a {
+    color: #000000de;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+a:active {
+    outline: none;
+}
+
+/*Search box and the google logo*/
+.fields {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 260px;
+}
+
+.search-box {
+    border-radius: 100px;
+    height: 30px;
+    width: 582px;
+    height: 44px;
+    margin-left: -140px;
+    padding-left: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+}
+
+.search-box:hover, .search-box:focus {
+    outline: #dfe1e5;
+    border-color: #dfe1e5;
+    box-shadow: 0 0 10px #dfe1e5;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    width: 272px;
+    height: 92px;
+}
+
+/*Search buttons underneath the search box*/
+#imgsearch {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+.search, .lucky {
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 12pt;
+    color: #3c4043;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    padding: 11px;
+    margin-top: 32px;
+    position: relative;
+    left: 10px;
+    cursor: pointer;
+    border: 1px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.search:hover, .lucky:hover, .search:focus, .lucky:focus, #imgsearch:hover, #imgsearch:focus {
+    outline: 1px solid lightgray;
+}
+
+/*Advance Search page customization*/
+.advance {
+    display: block;
+    font-size: 20pt;
+    text-align: left;
+    margin-top: 200px;
+}
+
+/*Google logo in advance search page*/
+#advgoogle {
+    width: 74px;
+    height: 24px;
+    margin: 13px;
+}
+
+/*The text "Advance Search"*/
+h3 {    
+    color: #d93025;
+    font-weight: normal;
+    margin-left: 37px;
+    font-size: 15pt;
+    font-family: Arial;
+    margin-top: 30px;
+}
+
+/*Line underneath the text "Advance Search"*/
+#weirdline {
+    border-bottom: 1px solid #ebebeb;
+    margin-top: 20px;
+}
+
+/*Search button on the advance search page*/
+#advancebutton {
+    background-color:  #4d90fe;
+    color: white;
+    border-radius: 2px;
+    border-color:  #3079ed;
+    padding-bottom: 10px;
+    padding-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    font-size: 11px;
+    margin-left: 715px;
+    font-weight: bold;
+    font-family: Arial;
+    position: relative;
+    bottom: 110px;
+    cursor: pointer;
+}
+
+/*Input boxes on the advance search page*/
+.box {
+    display: block;
+    outline: 1px;
+    border-color: #dfe1e5;
+    width: 554px;
+    height: 25px;
+    margin-left: 300px;
+    position: relative;
+    right: 40px;
+    bottom: 150px;
+    border-width: 1px;
+    padding-left: 8px;
+    font-size: 13px;
+}
+
+.box:focus {
+    outline: 1px solid blue;
+}
+
+/*Text on the left of the input boxes*/
+.word {
+    margin-left: 35px;
+    color: #222222;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    bottom: 125px;
+}
+
+/*The text "Find pages with..."*/
+.header {
+    margin-left: 35px;
+    color: #222222;
+    position: relative;
+    top: 35px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+
