@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <form method="GET" action="{% url 'categories' %}">
+        <div class="form-group">
+            <label><h5>Category</h5></label>
+            <select name="category" class="form-control">
+                {% for item in categories %}
+                    <option value="{{ item }}">{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Filter" class="btn btn-success" style="margin-left: 10px;">
+    </form>
+    
+    {% for sale in auction %}
+    <div class="card" style="width: 360pt; display: inline-block; margin: 10px;">
+        <a><img class="card-img-top" src="{{ sale.image }}" alt="Listing Image" style="height: 250pt">
+        <div class="card-body">
+            <h5 class="card-title">{{ sale.title }}</h5>
+            <p class="card-text">{{ sale.description }}</p>
+            <h6 class="card-text">{{ sale.bid }}$</h6>
+            <a href="{% url 'auction' id=sale.id %}"><button class="btn btn-success" style=" margin-top: 10px;">Details</button></a>
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock %}
+
+

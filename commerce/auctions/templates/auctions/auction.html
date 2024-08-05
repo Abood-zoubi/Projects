@@ -1,0 +1,76 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h1>Auction on {{ auction.title }}</h1>
+<img src="{{ auction.image }}" style="width: 1000px; height: 600px;">
+<br>
+<h5>Description: {{ auction.description }}</h5>
+<br>
+<h2>Start Bid: {{ auction.price.bid }}$</h2>
+<h2>Current Bid: {{ auction.bid }}$</h2>
+<h2>Details</h2>
+<h4><ul>
+    <li>
+        Owner: {{ auction.itemOwner }}
+    </li>
+    <li>
+        Category: {{ auction.category.category }}
+    </li>
+</ul></h4>
+
+{% if user.is_authenticated %}
+<form method="POST" action="{% url 'bid' id=auction.id %}">
+    {% csrf_token %}
+    <h2>Bids</h2>
+    <input type="number" name="bids" min="{{ auction.bid|add:1 }}" class="form-control" placeholder="Enter Bid">
+    <input type="submit" class="btn btn-primary" style="margin-top: 5px;"> 
+</form>
+{% endif %}
+
+{% if user.is_authenticated and user == auction.itemOwner %}
+<form method="POST" action="{% url 'close' id=auction.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success" name="close" style="margin-top: 15px;">Close Auction</button>
+</form>
+{% endif %}
+
+{% if user.is_authenticated %}
+  {% if not auction.isInWatchlist %}
+    <form method="POST" action="{% url 'addWatchlist' id=auction.id %}">
+      {% csrf_token %}
+      <input type="submit" name="add" value="Add to watchlist" class="btn btn-info" style="margin-top: 10px;">
+    </form>
+  {% else %}
+    <form method="POST" action="{% url 'removeWatchlist' id=auction.id %}">
+      {% csrf_token %}
+      <input type="submit" name="remove" value="Remove from watchlist" class="btn btn-danger" style="margin-top: 10px;">
+    </form>
+  {% endif %}
+{% endif %}
+
+<br>  
+{% if user.is_authenticated %}
+  <form method="POST" action="{% url 'addComment' id=auction.id %}">
+    {% csrf_token %}
+    <h3>Add Comment</h3>
+    <textarea name="comment" placeholder="Add Comment Here" class="form-control"></textarea>
+    <input type="submit" class="btn btn-primary" style="margin-top: 5px;">
+  </form>
+  {% endif %}
+
+  <br>
+<h3>All Comments:</h3>
+<ul class="list-group">
+  {% for comment in comments %}
+  <li class="list-group-item" style="margin: 5px;">
+    Comment by {{comment.author}} : 
+    <br>
+    {{ comment.comment }}
+  </li>
+  {% empty %}
+    <li class="list-group-item">
+      No comments yet.
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
